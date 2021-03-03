@@ -13,8 +13,7 @@ const svg = d3.select("#my_dataviz")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
-// https://www.freeforexapi.com/api/live?pairs=EURUSD,EURGBP,GBPUSD,USDJPY,AUDUSD,USDCHF,NZDUSD,USDCAD,USDZAR
-d3.json("test.json", ({ rates }) => {
+d3.json("https://www.freeforexapi.com/api/live?pairs=EURUSD,EURGBP,GBPUSD,USDJPY,AUDUSD,USDCHF,NZDUSD,USDCAD,USDZAR", ({ rates }) => {
 
   // console.log(rates)
   const myRates = Object.keys(rates).map(d => ({ name: d, rate: rates[d].rate})).sort((a, b) => a.rate - b.rate).reverse();
